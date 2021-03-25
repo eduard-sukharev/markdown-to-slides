@@ -109,6 +109,12 @@ The same, enabling the document mode.
 --include-remark -i  Include Remark sources (around 850kB) into the generated document
 ```
 
+#### Running with Docker
+
+    docker run -ti -v `pwd`:/src kraplax/markdown-to-slides ./my-file.md -o slideshow.html
+
+All options from above should work. Mind that `--watch` will make main process run until stopped, which effectively makes this tool more of a daemon, thus should probably be used with `docker run -d` option.
+
 ## Notes
 
 ### Inspiration
@@ -130,6 +136,13 @@ In other words, it is like markdown-to-slides, but for many documents at once, w
 - handle foot notes (from additional file?)
 
 ## Changelog
+
+### Version 1.0.6
+
+- Fix: Watch mode does not include custom stylesheet
+- Updated to latest version of remark 0.14.0
+- Fix: Line-height in li with p does not work properly
+- Dockerfile for easier local usage
 
 ### Version 1.0.5
 
